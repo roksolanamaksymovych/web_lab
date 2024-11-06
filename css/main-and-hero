@@ -1,0 +1,87 @@
+.hero__inner{
+    position: relative;
+    width: 540px;
+    padding-top: 120px;
+}
+
+.main__inner{
+    position: relative;
+    width: 540px;
+    padding-top: 160px;
+}
+
+
+.icon-container1 {
+    display: flex;
+    justify-content: flex-start;
+    gap: 30px;
+    margin-bottom: 259px; 
+    margin-top: 45px; 
+}
+
+
+.icon-container2 {
+    display: flex;
+    justify-content: flex-start;
+    gap: 30px;
+    margin-bottom: 259px; 
+    margin-top: 80px; 
+}
+
+.icon-item {
+    text-align: left; 
+    width: 255px;
+}
+
+.icon-item img {
+    width: 36px; 
+    height: auto; 
+}
+
+.icon-title {
+    color: #091133; 
+    font-size: 16px; 
+    font-style: normal; 
+    font-weight: 500; 
+    line-height: 26px; 
+    margin: 14px 0 6px 0; 
+    
+}
+
+.icon-text {
+    color: #5D6970;
+    font-size: 12px; 
+    font-weight: 400; 
+    line-height: 18px; 
+    
+}
+
+.tablet-image-container1 {
+    max-width: 645px; 
+    height: auto; 
+    flex-shrink: 0; 
+    margin-left: 700px;
+    margin-top: -715px;
+    position: absolute;
+    overflow: hidden; 
+
+}
+
+.tablet-image-container1 img {
+    max-width: 100%;
+    height: auto; 
+}
+
+.illustration img {
+    width: 100%;
+    height: auto;
+    object-fit: contain; 
+  }
+  
+.illustration {
+    position: absolute;
+    top: 165px;
+    left: 560px;
+    width: 540px;
+  }
+  
