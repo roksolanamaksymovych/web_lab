@@ -1,0 +1,11 @@
+@import"./normalize.min.css";
+
+@import"./globals.css";
+
+@import"./header.css";
+
+@import"./main-and-hero.css";
+
+@import"./pricing.css";
+
+@import"./footer.css";
