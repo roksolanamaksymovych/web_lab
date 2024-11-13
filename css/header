@@ -1,0 +1,126 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+}
+
+.header__title {
+    font-weight: 900;
+    font-size: 26px;
+}
+
+.header__right-side {
+    display: flex;
+    align-items: center;
+}
+
+.header__nav {
+    margin-right: 60px;
+}
+
+.header__nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.header__nav-item {
+    margin-right: 60px;
+}
+
+.header__nav-item a:hover {
+    color: darkblue; 
+}
+
+.header__nav-item a {
+    color: #505F98;
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: 400;
+    padding: 10px;
+    text-decoration: none; 
+    position: relative;
+    transition: color 0.3s ease; 
+}
+
+.header__nav-item a::after {
+    content: ''; 
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0; 
+    height: 2px; 
+    background-color: darkblue; 
+    transform: scaleX(0); 
+    transform-origin: left; 
+    transition: transform 0.3s ease; 
+}
+
+.header__nav-item a:hover::after {
+    transform: scaleX(1); 
+}
+
+.header__nav-item a:hover {
+    color: darkblue; 
+}
+
+.header__buttons {
+    display: flex;
+    gap: 26px;
+    align-self: center;
+}
+
+.header__learn-more {
+    display: flex;
+    border-radius: 2px;
+    background: #111B47;
+    font-size: 12px;
+    color: #fff;
+    padding: 4px;
+    width: 104px;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.header__buy-now {
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    border-radius: 2px;
+    background:  #FFD166;
+    font-size: 12px;
+    color: #111B47;
+    padding: 4px;
+    width: 104px;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    
+}
+
+.header__learn-more, .header__buy-now {
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    border-radius: 2px;
+}
+
+.header__learn-more:hover {
+    background-color: #4d65dc;
+    transform: scale(1.15);
+}
+
+.header__buy-now:hover {
+    background-color: #FFC53B;
+    transform: scale(1.15);
+}
+
+
+
+@media screen and (min-width: 320px) and (max-width: 768px) {
+    .header__learn-more,
+    .header__buy-now {
+        display: none;
+    }
+}
