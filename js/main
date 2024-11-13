@@ -1,0 +1,163 @@
+import { 
+    getAllPerfumes, 
+    postPerfume, 
+    updatePerfume, 
+    deletePerfume, 
+    searchPerfumes, 
+    sortPerfumesByPrice, 
+    sortPerfumesByVolume 
+} from "./api.js";
+
+class Perfume {
+    constructor(volume, price, brand) {
+        this.volume = volume;  
+        this.price = price;    
+        this.brand = brand;   
+    }
+}
+
+const perfumesList = document.getElementById("perfumesList");
+const createPerfumeButton = document.getElementById("createPerfumeButton");
+const sortPriceButton = document.getElementById("sortPrice");
+const sortVolumeButton = document.getElementById("sortVolume");
+const searchButton = document.getElementById("searchButton");
+const searchInput = document.getElementById("searchInput");
+const calculateButton = document.getElementById("calculateButton");
+const totalPriceDisplay = document.getElementById("totalPrice");
+const modal = document.getElementById("modal");
+const perfumeForm = document.getElementById("perfumeForm");
+const brandInput = document.getElementById("brandInput");
+const volumeInput = document.getElementById("volumeInput");
+const priceInput = document.getElementById("priceInput");
+const savePerfumeButton = document.getElementById("savePerfumeButton");
+const closeButton = document.querySelector(".close");
+
+let currentPerfumes = [];
+let editPerfumeIndex = null;  
+
+const perfumeTemplate = ({ volume, price, brand }, index) => `
+<tr>
+    <td>${brand}</td>
+    <td>${volume} ml</td>
+    <td>${price} грн</td>
+    <td><button class="edit-button" data-index="${index}">Edit</button></td>
+</tr>`;
+
+const renderPerfumesList = (perfumes) => {
+    perfumesList.innerHTML = ""; 
+    for (const [index, perfume] of perfumes.entries()) {
+        perfumesList.insertAdjacentHTML("beforeend", perfumeTemplate(perfume, index));  
+    }
+    currentPerfumes = perfumes;  
+};
+
+const loadPerfumes = async () => {
+    currentPerfumes = await getAllPerfumes();
+    renderPerfumesList(currentPerfumes);
+};
+
+loadPerfumes();
+
+
+const searchAndSortPerfumes = async (query, sortType) => {
+    const foundPerfumes = await searchPerfumes(query);
+    let sortedPerfumes;
+
+    if (sortType === "price") {
+        sortedPerfumes = foundPerfumes.sort((a, b) => a.price - b.price);
+    } else if (sortType === "volume") {
+        sortedPerfumes = foundPerfumes.sort((a, b) => a.volume - b.volume);
+    } else {
+        sortedPerfumes = foundPerfumes; 
+    }
+
+    renderPerfumesList(sortedPerfumes);
+};
+
+searchButton.addEventListener("click", async () => {
+    const query = searchInput.value.toLowerCase().trim();
+    searchAndSortPerfumes(query);  
+});
+
+sortPriceButton.addEventListener("click", async () => {
+    const query = searchInput.value.toLowerCase().trim();
+    if (query) {
+        await searchAndSortPerfumes(query, "price");  
+    } else {
+        const sortedPerfumes = await sortPerfumesByPrice();
+        renderPerfumesList(sortedPerfumes);
+    }
+});
+
+sortVolumeButton.addEventListener("click", async () => {
+    const query = searchInput.value.toLowerCase().trim();
+    if (query) {
+        await searchAndSortPerfumes(query, "volume");
+    } else {
+        const sortedPerfumes = await sortPerfumesByVolume();
+        renderPerfumesList(sortedPerfumes);
+    }
+});
+
+calculateButton.addEventListener("click", () => {
+    const total = currentPerfumes.reduce((acc, { price }) => acc + price, 0);
+    totalPriceDisplay.textContent = `Total Price: ${total} грн`;
+});
+
+createPerfumeButton.addEventListener("click", () => {
+    editPerfumeIndex = null;  
+    modal.style.display = "block"; 
+    perfumeForm.reset(); 
+});
+
+closeButton.addEventListener("click", () => {
+    modal.style.display = "none";
+});
+
+const isUniqueBrand = (brand) => {
+    return !currentPerfumes.some((perfume) => perfume.brand.toLowerCase() === brand.toLowerCase());
+};
+
+perfumeForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    const newBrand = brandInput.value.trim();
+    const newVolume = parseInt(volumeInput.value);
+    const newPrice = parseFloat(priceInput.value);
+
+    if (editPerfumeIndex === null && !isUniqueBrand(newBrand)) {
+        alert("Парфум з такою назвою вже існує!");
+        return; 
+    }
+
+    if (editPerfumeIndex !== null) {
+        const updatedPerfume = new Perfume(newVolume, newPrice, newBrand);
+        await updatePerfume(currentPerfumes[editPerfumeIndex].id, updatedPerfume);
+        currentPerfumes[editPerfumeIndex] = updatedPerfume;
+    } else {
+        const newPerfume = new Perfume(newVolume, newPrice, newBrand);
+        await postPerfume(newPerfume);
+        currentPerfumes.push(newPerfume);
+    }
+
+    renderPerfumesList(currentPerfumes);
+    modal.style.display = "none"; 
+});
+
+perfumesList.addEventListener("click", (event) => {
+    if (event.target.classList.contains("edit-button")) {
+        editPerfumeIndex = event.target.dataset.index; 
+        const perfumeToEdit = currentPerfumes[editPerfumeIndex];
+
+        brandInput.value = perfumeToEdit.brand;
+        volumeInput.value = perfumeToEdit.volume;
+        priceInput.value = perfumeToEdit.price;
+
+        modal.style.display = "block"; 
+    }
+});
+
+loadPerfumes();
+
+
+
