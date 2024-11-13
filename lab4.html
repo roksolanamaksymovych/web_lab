@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfume Store</title>
+    <link rel="stylesheet" href="./lab4_style.css"/>
+</head>
+<body>
+    <h1>Perfume Store</h1>
+
+    <div>
+        <h2>Sort and Search Options</h2>
+        <button id="sortPrice">Sort by Price</button>
+        <button id="sortVolume">Sort by Volume</button>
+
+        <div>
+            <input type="text" id="searchInput" placeholder="Search by Brand">
+            <button id="searchButton">Search</button>
+            <button id="resetButton">Reset</button>
+            <button id="createPerfumeButton">Add Perfume</button>
+        </div>
+    </div>
+
+    <h2>Perfumes:</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Brand</th>
+                <th>Volume</th>
+                <th>Price</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="perfumesList"></tbody>
+    </table>
+
+    <div>
+        <button id="calculateButton">Calculate Total Price</button>
+        <h2>Total Price: <span id="totalPrice">0</span> грн </h2>
+    </div>
+
+    <div id="modal">
+        <div id="modalContent">
+            <span class="close">&times;</span>
+            <h2>Add/Edit Perfume</h2>
+            <form id="perfumeForm">
+                <label for="brandInput">Brand:</label>
+                <input type="text" id="brandInput" required><br><br>
+                <label for="volumeInput">Volume (ml):</label>
+                <input type="number" id="volumeInput" required min="1"><br><br>
+                <label for="priceInput">Price (грн):</label>
+                <input type="number" id="priceInput" required min="0"><br><br>
+                <button type="submit">Save</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="/lab4/lab4.js"></script>
+</body>
+</html>
