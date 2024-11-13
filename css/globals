@@ -1,0 +1,188 @@
+body {
+    font-family: "Roboto", sans-serif;
+    color: #505F98;
+    margin: 0px;
+}
+
+a {
+    text-decoration: none;
+    color: #505F98;
+}
+
+li {
+    display: block;
+}
+
+.full-page {
+    margin: auto;
+    max-width: 1440px;
+    height: 2524px;
+    background: #fff;
+}
+
+.container {
+    margin: 0 auto;
+    max-width: 1110px;
+    position: initial;
+    
+}
+
+.container1 {
+    margin: 0 auto;
+    max-width: 1105px;
+    height: 702px;
+}
+
+
+.hero__inner {
+    width: 50%; 
+    text-align: left;
+    padding-right: 20px; 
+}
+
+.container2 {
+    margin: 0 auto;
+    max-width: 1105px;
+    height: 738px;
+}
+
+.container3 {
+    margin: 0 auto;
+    max-width: 1105px;
+    height: 770px;
+    
+}
+
+.footer_container {
+    width: 1440px;
+}
+
+.default-button {
+    width: 189px;
+    height: 26px;
+    flex-shrink: 0;
+    border-radius: 2px;
+    background: #111B47;
+    color: #fff;
+    text-align: center;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 18px;
+}
+
+.title {
+    color: #091133;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 48px;
+    margin-bottom: 23px;
+}
+
+.paragraph {
+    color: #6F7CB2;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 26px;
+}
+
+@media screen and (min-width: 320px) and (max-width: 768px) {
+    .full-page {
+        width: 100%;
+        height: auto;
+        padding: 20px;
+    }
+
+    .container {
+        width: 100%;
+        padding: 0 15px;
+    }
+
+    .hero__inner {
+        width: 100%;
+        text-align: center;
+        padding-right: 0;
+    }
+
+    .default-button {
+        width: 100%;
+        height: auto;
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .title {
+        font-size: 28px;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .paragraph {
+        font-size: 14px;
+        text-align: justify;
+    }
+
+    .container1, .container2, .container3 {
+        width: 100%;
+        height: auto;
+    }
+
+    .footer_container {
+        width: 100%;
+        padding: 0 15px;
+    }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1280px) {
+
+    .body{
+        margin: 10px ; 
+    }
+    .full-page {
+        width: 100%;
+        max-width: 1280px;
+        margin: 0 auto;
+    }
+
+    .container {
+        max-width: 1000px;
+        padding: 0 15px; 
+    }
+
+    .hero__inner {
+        width: 100%;
+        padding: 0 15px; 
+        text-align: center;
+    }
+
+    .default-button {
+        width: 150px;
+        font-size: 14px;
+        padding: 8px; 
+    }
+
+    .title {
+        font-size: 32px;
+        margin-bottom: 10px; 
+    }
+
+    .paragraph {
+        font-size: 16px;
+        text-align: justify;
+    }
+
+    .container1, .container2, .container3 {
+        width: 100%;
+        height: auto;
+
+    }
+
+    .footer_container {
+        width: 100%;
+        max-width: 1280px;
+        padding: 0 15px; 
+        margin-top: 20px;
+    }
+}
