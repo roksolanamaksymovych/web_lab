@@ -1,0 +1,134 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #efdfed;
+    padding: 20px;
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 24px;
+    margin-top: 40px;
+}
+
+
+button {
+    padding: 10px 15px;
+    margin: 5px;
+    background-color: #600244;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #7c0450;
+}
+
+
+input[type="text"] {
+    padding: 10px;
+    width: 200px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+
+table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+table th, table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #600244;
+    color: white;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+#calculateButton {
+    background-color: #600244;
+}
+
+#calculateButton:hover {
+    background-color: #7c0450;
+}
+
+.total-price {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.total-price h2 {
+    font-size: 24px;
+    margin-top: 10px;
+    color: #333;
+}
+
+
+div {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+
+.container {
+    margin-bottom: 40px;
+}
+
+#modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4); 
+}
+
+#modalContent {
+    background-color: #efdfed;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #600244;
+    width: 80%; 
+    max-width: 500px; 
+    border-radius: 8px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
