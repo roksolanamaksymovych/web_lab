@@ -1,0 +1,51 @@
+.footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #ed66b7;
+    color: #ffffff;
+}
+
+.branding {
+    text-align: left;
+    width: 100%;
+    margin-bottom: -30px;
+}
+
+.branding-title {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.branding-description {
+    margin-top: 5px;
+}
+
+.logo {
+    margin: 10px 0;
+    text-align: center;
+}
+
+.social {
+    display: flex;
+    margin-top: -30px;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.social a {
+    margin-left: 20px;
+}
+
+.divider {
+    width: 100%;
+    height: 1px;
+    background-color: #ffffff;
+    margin: 10px 0;
+}
+
+.company-info {
+    font-size: 14px;
+    text-align: center;
+}
