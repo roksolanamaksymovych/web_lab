@@ -1,0 +1,64 @@
+.text-container {
+    display: flex; 
+    flex-direction: column; 
+    margin-left: 550px; 
+    margin-top: -450px; 
+    margin-bottom: 250px; 
+}
+
+.main-heading {
+    font-size: 40px; 
+    font-weight: bold; 
+    margin: 20px 0;
+    color: #333; 
+    text-transform: uppercase; 
+    letter-spacing: 1px; 
+}
+
+.main-description {
+    font-size: 22px; 
+    color: #666;
+    line-height: 1.5; 
+    margin-bottom: 20px; 
+}
+
+.main-description:before {
+    content: 'Discover the world of fragrances that captivates your senses.'; 
+    display: block; 
+    font-size: 22px; 
+    color: #666;
+    margin-bottom: 10px; 
+}
+
+.image-placeholder img {
+    margin-bottom: 0; 
+    width: 350px; 
+    height: auto; 
+    margin-left: 65px;
+}
+
+.products-container {
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    margin-top: 300px; 
+}
+
+.products {
+    display: flex; 
+    justify-content: center; 
+    gap: 150px; 
+}
+
+.view-more {
+    margin-top: 20px;
+    padding: 15px 30px;
+    background-color: #ed66b7;
+    color: #ffffff;
+    border: none; 
+    border-radius: 10px;
+    cursor: pointer;
+    align-self: center;
+    font-size: 18px;
+}
+
